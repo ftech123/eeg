@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #000000;
+  background-color: azure;
+  line-height: 1.8;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  #recommendations {
+    display: none; /* Initially hide the recommendations */
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar" style="background-color: antiquewhite;">
+    <a href="index.html" class="w3-bar-item w3-button "> Home</a>
+    <a href="register.html" class="w3-bar-item w3-button "> Register</a>
+  </div>
+</div>
+<div class="w3-content w3-container w3-padding-64"> 
+
+
+  <h2>Peripheral Artery Disease Symptom Checker</h2>
+  <div class="container">
+    <div class="form-group">
+        <label><input type="checkbox" id="symptom1"> Leg pain or cramping while walking (intermittent claudication)</label>
+    </div>
+    <div class="form-group">
+        <label><input type="checkbox" id="symptom2"> Numbness or weakness in legs</label>
+    </div>
+    <div class="form-group">
+        <label><input type="checkbox" id="symptom3"> Coldness in lower leg or foot</label>
+    </div>
+    <div class="form-group">
+        <label><input type="checkbox" id="symptom4"> Sores on toes, feet, or legs that won't heal</label>
+    </div>
+    <div class="form-group">
+        <label><input type="checkbox" id="symptom5"> Change in leg color</label>
+    </div>
+    <div class="form-group">
+        <label><input type="checkbox" id="symptom6"> Weak or absent pulse in legs or feet</label>
+    </div>
+    <button onclick="checkPAD()">Check for Peripheral Artery Disease</button>
+    <p id="result"></p>
+    <div id="recommendations">
+      <h3>Recommendations:</h3>
+      <ul>
+          <li>Quit smoking: Smoking can worsen symptoms of PAD.</li>
+          <li>Exercise: Regular physical activity can improve circulation and reduce symptoms.</li>
+          <li>Healthy diet: Maintain a diet low in saturated fat, cholesterol, and sodium.</li>
+      </ul>
+      <p><em>Note: This symptom checker provides general information and is not a diagnostic tool. Consult a healthcare professional for proper evaluation and diagnosis.</em></p>
+  </div>
+</div>
+</div>
+  <script>
+         function checkPAD() {
+            var symptom1 = document.getElementById("symptom1").checked;
+            var symptom2 = document.getElementById("symptom2").checked;
+            var symptom3 = document.getElementById("symptom3").checked;
+            var symptom4 = document.getElementById("symptom4").checked;
+            var symptom5 = document.getElementById("symptom5").checked;
+            var symptom6 = document.getElementById("symptom6").checked;
+
+            if (symptom1 || symptom2 || symptom3 || symptom4 || symptom5 || symptom6) {
+                document.getElementById("result").innerText = "Based on the symptoms entered, it's recommended to consult a healthcare professional for further evaluation.";
+                document.getElementById("recommendations").style.display = "block"; // Show recommendations
+            } else {
+                document.getElementById("result").innerText = "The symptoms entered do not necessarily indicate Peripheral Artery Disease (PAD), but it's always best to consult a healthcare professional for proper diagnosis.";
+                document.getElementById("recommendations").style.display = "none"; // Hide recommendations
+            }
+        }
+  </script>
+</body>
+</html>
